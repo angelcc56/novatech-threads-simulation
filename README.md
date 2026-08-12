@@ -30,3 +30,13 @@ Simulation of a multi-threaded concurrent order processing system in Python, bui
    b. Run automatic invariant and test checks:
    
    python -m tests.test_cases
+
+## Concurrency Architecture & Synchronizations
+
+- **Main Thread:** Loads initial state, spawns 3 workers + 1 monitor, waits via `join()`, and reports final metrics.
+- **Worker Threads (3x):** Process orders concurrently from a shared `queue.Queue`. Critical inventory modification is guarded by a `threading.Lock()` mutex.
+- **System Monitor Thread (1x):** Periodically logs active queue size, approved/rejected counters, and active worker count until signaled by a `threading.Event` token.
+- **Shared Resources:** 
+  - Inventory dict protected via `threading.Lock`
+  - Statistics counters protected via `threading.Lock`
+  - Order queue managed via thread-safe `queue.Queue`
