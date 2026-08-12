@@ -1,3 +1,9 @@
+# NovaTech Concurrent Simulator
+# Main Execution Entry Point
+# Author: Luis Angel Cabrera Girón
+# Course: Sistemas Operativos | Tarea Práctica SO-THR-01
+# University: Universidad Galileo
+
 # Main entry point: Orchestrates threads, monitor, and clean termination
 
 import time
