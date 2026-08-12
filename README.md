@@ -13,3 +13,20 @@ Simulation of a multi-threaded concurrent order processing system in Python, bui
 - **Language:** Python 3.8+
 - **Libraries used:** Standard Library only (`threading`, `queue`, `time`, `random`, `dataclasses`)
 - **Tested OS:** Linux / macOS / Windows
+
+## How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/angelcc56/novatech-threads-simulation.git](https://github.com/angelcc56/novatech-threads-simulation.git)
+   cd novatech-threads-simulation
+
+   Execution options:
+   
+   a. Run the concurrent simulation:
+   
+   python main.py
+   
+   b. Run automatic invariant and test checks:
+   
+   python -m tests.test_cases
