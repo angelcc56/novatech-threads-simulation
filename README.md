@@ -40,3 +40,13 @@ Simulation of a multi-threaded concurrent order processing system in Python, bui
   - Inventory dict protected via `threading.Lock`
   - Statistics counters protected via `threading.Lock`
   - Order queue managed via thread-safe `queue.Queue`
+
+  ## Test Cases Summary
+
+| Test Case | Description | Expected & Verified Result |
+| :--- | :--- | :--- |
+| **CP-01** | Normal Flow | Valid orders processed and approved concurrently. |
+| **CP-02** | Contention | Multiple workers compete for P005 stock; stock never drops below 0. |
+| **CP-03** | Insufficient Stock | Orders exceeding stock (e.g., ORD-009) are rejected without stock deduction. |
+| **CP-04** | Invalid Order | Malformed orders (e.g., non-existent products) trigger safe errors without crash. |
+| **CP-05** | Clean Closure | All threads join properly with 0 active orphan threads remaining. |
